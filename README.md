@@ -7,6 +7,7 @@
 
 **Node** - physical server
 * each Node has multiple Pods on it
+* There are 2 types of Nodes - Worker Nodes and Master Nodes
 * **Worker nodes**
     * 3 processes run on every worker node
         * container runtime - Docker
@@ -38,9 +39,9 @@
 * deploying DBs using Stateful Sets is difficult, so DBs are often hosted outside of K8 clusters
 
 **Volumes** - attach a physical storage to a pod so that data lifecycle is not tied to a pod itself
-* K8 doesn’t manage data persistance
+* K8 doesn’t manage data persistence (unless you use Persistent Volumes)
 * data can be on local machine
-* can be remote, outside of the K8 cluster
+* can be remote, outside the K8 cluster
 * when a Pod is restarted, data persists
 
 **Service** - permanent IP address that’s attached to a Pod.
@@ -60,7 +61,9 @@
 
 **Secret** - used to store secret data (passwords, certificates)
 * stored in base64, not plaintext
+* should be preferred over ConfigMap for sensitive data
 * the built-in security mechanism is not enabled by default
+* not fully secure unless you use add'l measures like encryption at rest or tools like HashiCorp Vault
 
 ## Layers of Abstraction
 
