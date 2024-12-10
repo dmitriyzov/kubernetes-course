@@ -9,6 +9,8 @@ metadata:
 spec:
   replicas: 1
   selector:
+    # select all pods with "app: nginx" key/value labels
+    # ensures "app: nginx" pods belong to the deployment
     matchLabels:
       app: nginx
   # blueprint for the pod
