@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deployment
+  labels:
+    apps: mongodb
+spec:
+  replicas: 1
+  selector:
+    # matches Pods that have the label `app:mongodb`
+    matchLabels:
+      app: mongodb
+    # blueprint for the pod
+    template:
+      metadata:
+        # sets the Pod label which the Deployment selector uses
+        labels:
+          app:mongodb
+      spec:
+        containers:
+          - name: mongodb
+          - image: mongo
