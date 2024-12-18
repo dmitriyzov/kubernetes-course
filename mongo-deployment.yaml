@@ -11,25 +11,25 @@ spec:
     matchLabels:
       app: mongodb
     # blueprint for the pod
-    template:
-      metadata:
-        # sets the Pod label which the Deployment selector uses
-        labels:
-          app: mongodb
-      spec:
-        containers:
-          - name: mongodb
-            image: mongo
-            ports:
-              - containerPort: 27017
-                env:
-                  - name: MONGO_INITDB_ROOT_USERNAME
-                    valueFrom:
-                      secretKeyRef:
-                        name: mongo-secret # name of the secret
-                        key: mongo-root-username # name of the secret key
-                  - name: MONGO_INITDB_ROOT_PASSWORD
-                    valueFrom:
-                      secretKeyRef:
-                        name: mongo-secret
-                        key: mongo-root-password
+  template:
+    metadata:
+      # sets the Pod label which the Deployment selector uses
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo
+          ports:
+          - containerPort: 27017
+          env:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret # name of the secret
+                key: mongo-root-username # name of the secret key
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: mongo-root-password
