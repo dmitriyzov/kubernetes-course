@@ -90,7 +90,7 @@ Each configuration file has 3 main parts:
 ## minikube
 * Creates a Virtual Box on your local machine
 * A single Node runs both Master and Worker processes
-* minicube CLI is used mostly for starting up or deleting the cluster
+* minikube CLI is used mostly for starting up or deleting the cluster
 * everything else will be done with `kubectl`
 
 ```bash
