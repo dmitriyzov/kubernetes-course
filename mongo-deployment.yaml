@@ -15,7 +15,7 @@ spec:
       metadata:
         # sets the Pod label which the Deployment selector uses
         labels:
-          app:mongodb
+          app: mongodb
       spec:
         containers:
           - name: mongodb
