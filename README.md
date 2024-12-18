@@ -94,7 +94,8 @@ Each configuration file has 3 main parts:
 * everything else will be done with `kubectl`
 
 ```bash
-minikube start --vm-driver=hyperkit
+minikube config set driver hyperkit
+minikube start
 minikube status
 ```
 
