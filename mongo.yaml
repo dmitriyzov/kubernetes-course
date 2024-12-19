@@ -6,15 +6,12 @@ metadata:
     app: mongodb
 spec:
   replicas: 1
-  selector:
-    # matches Pods that have the label `app:mongodb`
+  selector: # matches Pods that have the label `app:mongodb`
     matchLabels:
       app: mongodb
-    # blueprint for the pod
-  template:
+  template: # blueprint for the pod
     metadata:
-      # sets the Pod label which the Deployment selector uses
-      labels:
+      labels: # sets the Pod label which the Deployment selector uses
         app: mongodb
     spec:
       containers:
