@@ -87,6 +87,35 @@ Each configuration file has 3 main parts:
 * Templates have their own "metadata" and "spec" sections that apply to Pods. They are like Blueprints for Pods.
 * Labels & Selectors - used for establishing a connection. Label labels the entity itself, and selector is what lets it connect to other entities by their own labels. Pod gets a label through the template blueprint. This label is matched by the selector.
 
+## Namespaces
+
+Namespaces are used to group resources, usually in larger projects. Namespaces  are like clusters within a cluster.
+There are 4 default namespaces:
+* kube-system - not for your use, for internal components (system processes)
+* kube-public - publicly-accessible data. Configmap contains cluster info without auth
+* kube-node-lease - holds information about heartbeats of nodes
+* default - this is the one you create resources in unless you created another namespace
+* kubernetes-dashboard - non-default, specific to minikube.
+
+There are a few use cases for namespaces:
+1. Grouping resources logically
+2. Grouping resources by teams (prevent affecting other teams)
+3. Allowing resource sharing between environments (ie shared ELK stack) or versions of environments (Blue/Green)
+4. Limiting resource access by namespace (each team only has access to their resources) and limit resources that a namespace consumes by using resource quotas
+
+Characteristics of namespaces
+1. You can't access most resources from another namespace (you can't use Project A's ConfigMap that references the database in Project B)
+2. You CAN share a Service between namespaces (both Project A and Project B can use the mysql-service in the "database" namespace)
+3. Some components cannot be created in a Namespace but are rather global (volume/persistent volume, node)
+
+```bash
+# Listing namespaced resources
+kubectl api-resources --namespaced=true
+
+# Listing non-namespaced resources
+kubectl api-resources --namespaced=false
+```
+
 ## minikube
 * Creates a Virtual Box on your local machine
 * A single Node runs both Master and Worker processes
