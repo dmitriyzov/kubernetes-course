@@ -94,7 +94,7 @@ There are 4 default namespaces:
 * kube-system - not for your use, for internal components (system processes)
 * kube-public - publicly-accessible data. Configmap contains cluster info without auth
 * kube-node-lease - holds information about heartbeats of nodes
-* default - this is the one you create resources in unless you created another namespace
+* default - this is the one you create resources in unless you create/specify another namespace. You can change the active namespace using `kubens`
 * kubernetes-dashboard - non-default, specific to minikube.
 
 There are a few use cases for namespaces:
