@@ -189,3 +189,45 @@ kubectl apply -f nginx-deployment.yaml
 # Delete using a configuration file
 kubectl delete -f nginx-deployment.yaml
 ```
+
+## Helm
+
+### What is Helm?
+#### 1. Package manager for Kubernetes 
+packages YAML files as Helm Charts and distribute them in public and private registries
+
+#### 2. Templating engine
+You can define templates for microservices and store dynamic values in a separate file.
+
+*Helm Chart directory structure:*
+mychart/        -- Top level folder - name of the chart
+    Chart.yaml  -- meta info about the chart
+    values.yaml -- default values for the template files
+    charts/     -- chart dependencies
+    templates/  -- template files. These get filled with values from values.yaml
+
+*Value injection using Helm*
+```yaml
+# values.yaml - default values
+imageName: myapp
+port: 8080
+version: 1.0.0
+```
+
+```yaml
+# my-values.yaml - override values
+version: 2.0.0
+```
+
+```bash
+helm install --values=my-values.yaml <chartname>
+```
+
+```yaml
+# result
+imageName: myapp
+port: 8080
+version: 2.0.0
+```
+
+#### 3. Release management
