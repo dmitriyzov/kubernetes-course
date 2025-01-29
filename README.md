@@ -193,6 +193,20 @@ kubectl delete -f nginx-deployment.yaml
 
 ## Exercises
 
+### Kubernetes Dashboard
+```bash
+minikube addons enable dashboard
+minikube addons enable metrics-server
+kubectl apply -f dashboard-ingress.yaml
+
+# add this line to /etc/hosts
+<minikube ip> dashboard.com # if using the hyperkit driver
+127.0.0.1 dashboard.com # if using the docker driver
+minikube tunnel # only needed if using the docker driver
+
+# see https://github.com/kubernetes/minikube/issues/13510 
+```
+
 ### MongoDB & Mongo-Express
 ```bash
 kubectl apply -f mongodb-secret.yaml
