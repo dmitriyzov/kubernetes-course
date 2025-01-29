@@ -120,7 +120,7 @@ kubectl api-resources --namespaced=false
 
 ### Ingress
 
-Instead of access the application using an external service (IP:PORT), you can use an Ingress,
+Instead of accessing the application using an external service (IP:PORT), you can use an Ingress,
 which will redirect the request to an internal service.
 This way, you don't have to expose the IP and the port.  
 Additionally, you don't have to specify the `nodePort` on the internal service,
