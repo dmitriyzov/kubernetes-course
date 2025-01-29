@@ -220,6 +220,14 @@ minikube service mongo-express-external-service
 
 # username: admin
 # password: pass
+
+# alternatively, to access the dashboard using a hostname:
+# add this line to /etc/hosts
+<minikube ip> mongo-dashboard.com # if using the hyperkit driver
+127.0.0.1 mongo-dashboard.com # if using the docker driver
+minikube tunnel # only needed if using the docker driver
+
+# see https://github.com/kubernetes/minikube/issues/13510
 ```
 
 ## Helm
