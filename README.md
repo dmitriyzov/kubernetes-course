@@ -191,6 +191,23 @@ kubectl apply -f nginx-deployment.yaml
 kubectl delete -f nginx-deployment.yaml
 ```
 
+## Exercises
+
+### MongoDB & Mongo-Express
+```bash
+kubectl apply -f mongodb-secret.yaml
+kubectl apply -f mongodb.yaml
+kubectl apply -f mongo-express.yaml
+kubectl apply -f mongo-express-ingress.yaml
+
+# at this point, `kubectl get service` will list the External IP of the external service as "Pending".
+# to assign it, run:
+minikube service mongo-express-external-service
+
+# username: admin
+# password: pass
+```
+
 ## Helm
 
 ### What is Helm?
