@@ -139,9 +139,10 @@ To install Ingress in a Minikube cluster, you can run `minikube addons enable in
 * everything else will be done with `kubectl`
 
 ```bash
-minikube config set driver hyperkit
+minikube config set driver hyperkit # or docker if using an Apple Silicon chip
 minikube start
 minikube status
+minikube addons enable ingress
 ```
 
 ## kubectl
