@@ -116,6 +116,21 @@ kubectl api-resources --namespaced=true
 kubectl api-resources --namespaced=false
 ```
 
+## Data persistence
+
+### Persistent Volumes
+* Persistent volumes are NOT namespaced, available to all clusters
+* There are 2 categories - Local and Remote, each with it's own use case
+  * Local - violates 2/3 requirements for data persistence - tied to one specific node, won't survive cluster crashes
+  * Remote - 
+* K8s Admin - sets up and maintains the cluster and configures storage
+* K8s User - deploys applications in the custer and claims storage using a pvc (PersistentVolumeClaim)
+* Claims - Pod requests the volume using the PersistentVolumeClaim. Claims must exist in teh same namespace as the Pod
+* Claim tries to find a volume in the cluster
+* Volume has the actual storage backend
+* Volume can be mounted into the Pod or into the Container inside the Pod 
+
+
 ## Ingress and Egress
 
 ### Ingress
