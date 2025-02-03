@@ -130,6 +130,11 @@ kubectl api-resources --namespaced=false
 * Volume has the actual storage backend
 * Volume can be mounted into the Pod or into the Container inside the Pod 
 
+## ConfigMap and Secret
+
+* These are also volume types
+* Not created via PV and PVC and is managed by Kubernetes itself
+* You can mount either into your Pod or Container 
 
 ## Ingress and Egress
 
