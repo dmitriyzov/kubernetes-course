@@ -1,7 +1,7 @@
 # Kubernetes
 
 ## Resources
-* [Kubernetes Full Course](https://youtu.be/X48VuDVv0do)
+* [Kubernetes Full Course](https://youtu.be/X48VuDVv0do?t=3807)
 
 ## Main components
 
