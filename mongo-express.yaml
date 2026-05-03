@@ -37,7 +37,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo-express-internal-service
+  name: mongo-express-service
 spec:
   selector:
     app: mongo-express
