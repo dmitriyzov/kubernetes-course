@@ -37,7 +37,7 @@ metadata:
   name: mongodb-service
 spec:
   selector:
-    app: mongodb
+    app: mongodb # connect to Pods with this label
   ports:
     - protocol: TCP
       port: 27017
