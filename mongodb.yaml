@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mongodb-deployment
   labels:
-    app: mongodb
+    app: mongodb-depl
 spec:
   replicas: 1
   selector: # matches Pods that have the label `app:mongodb`
