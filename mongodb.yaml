@@ -18,7 +18,7 @@ spec:
         - name: mongodb
           image: mongo
           ports:
-            - containerPort: 27017
+            - containerPort: 27017 # the port the container is available on
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
@@ -40,5 +40,5 @@ spec:
     app: mongodb # connect to Pods with this label
   ports:
     - protocol: TCP
-      port: 27017
-      targetPort: 27017
+      port: 27017 # the port we expose on the service. Can differ from target port
+      targetPort: 27017 # the container port (Pod) we forward the requests to
