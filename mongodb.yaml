@@ -11,7 +11,7 @@ spec:
       app: mongodb
   template: # blueprint for the pod
     metadata:
-      labels: # sets the Pod label which the Deployment selector uses
+      labels: # sets label on Pods which Deployment selector uses to find them
         app: mongodb
     spec:
       containers:

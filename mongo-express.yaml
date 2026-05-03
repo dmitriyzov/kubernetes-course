@@ -11,7 +11,7 @@ spec:
       app: mongo-express
   template: # blueprint for Pods
     metadata:
-      labels: # sets label that Deployment selector uses above
+      labels: # sets label on Pods that Deployment selector uses to find them
         app: mongo-express
     spec:
       containers:
