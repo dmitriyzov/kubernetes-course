@@ -59,4 +59,4 @@ spec:
     - protocol: TCP
       port: 8081
       targetPort: 8081
-      nodePort: 30081 # this external port must be between 30000-32767
+      nodePort: 30081 # port where this external IP address will be open. must be between 30000-32767
