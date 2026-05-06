@@ -140,16 +140,13 @@ kubectl api-resources --namespaced=false
 
 ### Ingress
 
-Instead of accessing the application using an external service (IP:PORT), you can use an Ingress,
-which will redirect the request to an internal service.
-This way, you don't have to expose the IP and the port.  
-Additionally, you don't have to specify the `nodePort` on the internal service,
-and you don't have to set `type:LoadBalancer` - the default (implied) `type:ClusterIP` is used instead.
+Instead of accessing the application using an external service (IP:PORT), you can use an Ingress, which will redirect the request to an internal service.
+This way, you don't have to expose the IP and the port. Additionally, you don't have to specify the `nodePort` on the internal service, and you don't have to set `type:LoadBalancer` - the default (implied) `type:ClusterIP` is used instead.
 
 However, creating the Ingress in yaml alone won't work - you also need an implementation for Ingress, aka Ingress Controller.
-An Ingress Controller is installed on another Pod or set of Pods, that run on a node in your K8s cluster, and handle
-evaluation and processing of Ingress rules that are defined in the cluster. The Ingress Controller Pod becomes the entrypoint
-into the Cluster. There are different implementations of the Ingress Controller, including the K8s Nginx Ingress Controller.
+
+An Ingress Controller is installed on another Pod or set of Pods, that run on a node in your K8s cluster, and handleevaluation and processing of Ingress rules that are defined in the cluster. The Ingress Controller Pod becomes the entrypoint into the Cluster. There are different implementations of the Ingress Controller, including the K8s Nginx Ingress Controller.
+
 To install Ingress in a Minikube cluster, you can run `minikube addons enable ingress`.
 
 ## minikube
