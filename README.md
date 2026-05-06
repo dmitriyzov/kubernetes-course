@@ -220,9 +220,9 @@ kubectl apply -f dashboard-ingress.yaml
 <minikube ip> dashboard.com # if using the hyperkit driver
 127.0.0.1 dashboard.com # if using the docker driver
 minikube tunnel # only needed if using the docker driver
-
-# see https://github.com/kubernetes/minikube/issues/13510 
 ```
+
+See https://github.com/kubernetes/minikube/issues/13510
 
 ### MongoDB & Mongo-Express
 ```bash
