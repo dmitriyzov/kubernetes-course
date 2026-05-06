@@ -237,8 +237,11 @@ minikube service mongo-express-external-service
 
 # username: admin
 # password: pass
+```
 
-# alternatively, to access the mongo express dashboard using a hostname:
+Alternatively, to access the mongo express dashboard using a hostname and a port:
+
+```bash
 # add this line to /etc/hosts
 <minikube ip> mongo-express.com # if using the hyperkit driver
 127.0.0.1 mongo-express.com # if using the docker driver
@@ -248,14 +251,14 @@ minikube tunnel # only needed if using the docker driver
 kubectl get service
 
 # you will see something like:
-```bash
 NAME                             TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
 mongo-express-external-service   LoadBalancer   10.106.57.109    127.0.0.1     8081:30081/TCP   3d
 ```
-# in this case, you have to go to mongo-express.com:8081
 
-# see https://github.com/kubernetes/minikube/issues/13510
-```
+In this case, you have to go to http://mongo-express.com:8081
+
+See https://github.com/kubernetes/minikube/issues/13510
+
 
 ## Helm
 
