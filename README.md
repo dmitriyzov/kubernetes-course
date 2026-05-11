@@ -222,6 +222,8 @@ kubectl apply -f dashboard-ingress.yaml
 minikube tunnel # only needed if using the docker driver
 ```
 
+Kubernetes dashboard will be available at http://dashboard.com
+
 See https://github.com/kubernetes/minikube/issues/13510
 
 ### MongoDB & Mongo-Express
@@ -255,7 +257,9 @@ NAME                             TYPE           CLUSTER-IP       EXTERNAL-IP   P
 mongo-express-external-service   LoadBalancer   10.106.57.109    127.0.0.1     8081:30081/TCP   3d
 ```
 
-In this case, you have to go to http://mongo-express.com:8081
+Mongo-express will be available at:
+* http://mongo-express.com:8081 (using an external service)
+* http://mongo-express.com (using ingress)
 
 See https://github.com/kubernetes/minikube/issues/13510
 
