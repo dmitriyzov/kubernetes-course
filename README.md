@@ -274,11 +274,14 @@ packages YAML files as Helm Charts and distribute them in public and private reg
 You can define templates for microservices and store dynamic values in a separate file.
 
 *Helm Chart directory structure:*
-mychart/        -- Top level folder - name of the chart
-    Chart.yaml  -- meta info about the chart
-    values.yaml -- default values for the template files
-    charts/     -- chart dependencies
-    templates/  -- template files. These get filled with values from values.yaml
+```bash
+.
+├── mychart/        -- Top level folder - name of the chart
+│   ├── Chart.yaml  -- meta info about the chart
+│   ├── values.yaml -- default values for the template files
+│   ├── charts/     -- chart dependencies
+│   └── templates/  -- template files, get filled with values from values.yaml
+```
 
 *Value injection using Helm*
 ```yaml
