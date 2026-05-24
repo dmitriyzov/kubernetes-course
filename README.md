@@ -145,7 +145,7 @@ This way, you don't have to expose the IP and the port. Additionally, you don't 
 
 However, creating the Ingress in yaml alone won't work - you also need an implementation for Ingress, aka Ingress Controller.
 
-An Ingress Controller is installed on another Pod or set of Pods, that run on a node in your K8s cluster, and handleevaluation and processing of Ingress rules that are defined in the cluster. The Ingress Controller Pod becomes the entrypoint into the Cluster. There are different implementations of the Ingress Controller, including the K8s Nginx Ingress Controller.
+An Ingress Controller is installed on another Pod or set of Pods, that run on a node in your K8s cluster, and handles evaluation and processing of Ingress rules that are defined in the cluster. The Ingress Controller Pod becomes the entrypoint into the Cluster. There are different implementations of the Ingress Controller, including the K8s Nginx Ingress Controller.
 
 - entrypoint to the cluster  
 - evaluates all the rules  
