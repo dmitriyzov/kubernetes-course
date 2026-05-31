@@ -126,7 +126,7 @@ kubectl api-resources --namespaced=false
 * K8s Admin - sets up and maintains the cluster and configures storage
 * K8s User - deploys applications in the custer and claims storage using a pvc (PersistentVolumeClaim)
 * Claims - Pod requests the volume using the PersistentVolumeClaim. Claims must exist in the same namespace as the Pod
-* Claim tries to find a volume in the cluster
+* Claim tries to find a Persistent Volume in the cluster that satisfies the claim
 * Volume has the actual storage backend
 * Volume can be mounted into the Pod or into the Container inside the Pod 
 
