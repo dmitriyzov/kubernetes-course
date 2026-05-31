@@ -128,7 +128,8 @@ kubectl api-resources --namespaced=false
 * Claims - Pod requests the volume using the PersistentVolumeClaim. Claims must exist in the same namespace as the Pod
 * Claim tries to find a Persistent Volume in the cluster that satisfies the claim
 * Volume has the actual storage backend
-* Volume can be mounted into the Pod or into the Container inside the Pod 
+* Volume can be mounted into the Pod or into the Container inside the Pod  
+* PV Claims must exist in the same namespace as pods using them, unlike Persistent Volumes, which are not namespaced
 
 ## ConfigMap and Secret
 
