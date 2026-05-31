@@ -153,6 +153,8 @@ An Ingress Controller is installed on another Pod or set of Pods, that run on a 
 
 To install Ingress in a Minikube cluster, you can run `minikube addons enable ingress`.
 
+This automatically starts the K8s Nginx implementation of Ingress Controller.
+
 ## minikube
 * Creates a Virtual Box on your local machine
 * A single Node runs both Master and Worker processes
@@ -218,7 +220,7 @@ kubectl delete -f nginx-deployment.yaml
 ```bash
 minikube addons enable dashboard
 minikube addons enable metrics-server
-kubectl apply -f dashboard-ingress.yaml
+kubectl apply -f   ingress.yaml
 
 # add this line to /etc/hosts
 <minikube ip> dashboard.com # if using the hyperkit driver
