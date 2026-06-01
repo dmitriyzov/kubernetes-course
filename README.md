@@ -37,6 +37,9 @@
 * should be used over Deployments for databases (MySql, MongoDB, ElasticSearch)
 * takes care of replicating and scaling stateful Pods
 * deploying DBs using Stateful Sets is difficult, so DBs are often hosted outside of K8 clusters
+    * replica Pods can't be created/deleted at the same time
+    * replica Pods can't be randomly addressed
+    * unlike Deployment Pod s, replica Pods are not identical - they have Pod Identity
 
 **Volumes** - attach a physical storage to a pod so that data lifecycle is not tied to a pod itself
 * K8 doesn’t manage data persistence (unless you use Persistent Volumes)
