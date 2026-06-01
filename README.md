@@ -38,6 +38,8 @@
 * should be used over Deployments for databases (MySql, MongoDB, ElasticSearch)
 * takes care of replicating and scaling stateful Pods
 * StatefulSets have fixed ordered names
+* In addition, StatefulSet pods have fixed individual DNS names. When Pod restarts, IP address changes,
+but name nad endpoint stay the same.
 * deploying DBs using Stateful Sets is difficult, so DBs are often hosted outside of K8 clusters
     * replica Pods can't be created/deleted at the same time
     * replica Pods can't be randomly addressed
