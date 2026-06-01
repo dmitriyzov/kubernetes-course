@@ -131,6 +131,17 @@ kubectl api-resources --namespaced=false
 * Volume can be mounted into the Pod or into the Container inside the Pod  
 * PV Claims must exist in the same namespace as pods using them, unlike Persistent Volumes, which are not namespaced
 
+### Storage Class
+A Storage Class provisions Persistent Volumes dynamically, whenever Persistent Volume Claim claims it.
+This way, provisioning Volumes in a cluster can be automated.  
+The `provisioner` attribute tells K8s which provisioner to use (EBS, EFS, etc) for a specific Platform/Cloud provider to create a PV component.
+There are internal (`kubernetes.io`) and external (Cloud) provisioners
+
+### Storage abstraction layers
+1. Pod claims storage via a Persistent Volume Claim  
+2. Persistent Volume Claim requests storage from the Storage Class  
+3. Storage Class creates a Persistent Volume that meets the needs of the Claim
+
 ## ConfigMap and Secret
 
 * These are also volume types
