@@ -31,11 +31,13 @@
 * used for stateLESS applications
 * you create Deployments rather than working with Pods directly
 * you can scale the number of replicas you need using a replicaset
+* deployments get a random hash appended to the name
 * databases can’t be replicated using Deployments
 
 **StatefulSet** - component for stateFULL Applications
 * should be used over Deployments for databases (MySql, MongoDB, ElasticSearch)
 * takes care of replicating and scaling stateful Pods
+* StatefulSets have fixed ordered names
 * deploying DBs using Stateful Sets is difficult, so DBs are often hosted outside of K8 clusters
     * replica Pods can't be created/deleted at the same time
     * replica Pods can't be randomly addressed
