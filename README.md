@@ -185,7 +185,52 @@ There are internal (`kubernetes.io`) and external (Cloud) provisioners
 
 * These are also volume types
 * Not created via PV and PVC and is managed by Kubernetes itself
-* You can mount either into your Pod or Container 
+* You can mount either into your Pod or Container
+
+## Helm
+
+### What is Helm?
+#### 1. Package manager for Kubernetes 
+packages YAML files as Helm Charts and distribute them in public and private registries
+
+#### 2. Templating engine
+You can define templates for microservices and store dynamic values in a separate file.
+
+*Helm Chart directory structure:*
+```bash
+.
+├── mychart/        -- Top level folder - name of the chart
+│   ├── Chart.yaml  -- meta info about the chart
+│   ├── values.yaml -- default values for the template files
+│   ├── charts/     -- chart dependencies
+│   └── templates/  -- template files, get filled with values from values.yaml
+```
+
+*Value injection using Helm*
+```yaml
+# values.yaml - default values
+imageName: myapp
+port: 8080
+version: 1.0.0
+```
+
+```yaml
+# my-values.yaml - override values
+version: 2.0.0
+```
+
+```bash
+helm install --values=my-values.yaml <chartname>
+```
+
+```yaml
+# result
+imageName: myapp
+port: 8080
+version: 2.0.0
+```
+
+#### 3. Release management
 
 ## minikube
 * Creates a Virtual Box on your local machine
@@ -300,49 +345,3 @@ Mongo-express will be available at:
 * http://mongo-express.com (using ingress)
 
 See https://github.com/kubernetes/minikube/issues/13510
-
-
-## Helm
-
-### What is Helm?
-#### 1. Package manager for Kubernetes 
-packages YAML files as Helm Charts and distribute them in public and private registries
-
-#### 2. Templating engine
-You can define templates for microservices and store dynamic values in a separate file.
-
-*Helm Chart directory structure:*
-```bash
-.
-├── mychart/        -- Top level folder - name of the chart
-│   ├── Chart.yaml  -- meta info about the chart
-│   ├── values.yaml -- default values for the template files
-│   ├── charts/     -- chart dependencies
-│   └── templates/  -- template files, get filled with values from values.yaml
-```
-
-*Value injection using Helm*
-```yaml
-# values.yaml - default values
-imageName: myapp
-port: 8080
-version: 1.0.0
-```
-
-```yaml
-# my-values.yaml - override values
-version: 2.0.0
-```
-
-```bash
-helm install --values=my-values.yaml <chartname>
-```
-
-```yaml
-# result
-imageName: myapp
-port: 8080
-version: 2.0.0
-```
-
-#### 3. Release management
