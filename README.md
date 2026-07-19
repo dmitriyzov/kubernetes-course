@@ -1,4 +1,4 @@
-# Kubernetes
+# ☸️ Kubernetes
 
 ## Resources
 * [Kubernetes Full Course](https://youtu.be/X48VuDVv0do)
