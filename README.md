@@ -51,7 +51,7 @@
             * Ensures performant communication with low overhead
 * **Control Plane nodes** (formerly 'Master Nodes') - control the cluster state and the worker nodes
     * 4 processes run on every Control Plane node
-        * API Server - cluster gateway. receives the initial requests to update the cluster. Gatekeeper for authentication
+        * API Server - cluster gateway, entrypoint to the K8s Control Plane. It receives the initial requests to update the cluster. Gatekeeper for authentication
         * Scheduler - decides on which Node to put a new Pod (doesn’t actually run it, Kubelet does that on the worker node itself)
         * Controller manager - detect state changes (like when nodes die) and reschedules/recovers via scheduler
         * etcd - cluster brain, key/value store for changes. 
@@ -111,7 +111,7 @@ but name nad endpoint stay the same.
 * Headless Service - a Service with `clusterIP: None`; it has no virtual IP or built-in load balancing and DNS returns the individual Pod IPs.
 
 ### **Ingress** - pretty url, forwards the request to a service
-* entrypoint to the cluster  
+* Ingress object is just configuration, and Ingress Controller + Load Balancer are an application-traffic  entrypoint to the Data Plane workloads
 * evaluates all the rules  
 * manages redirection
 
