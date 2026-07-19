@@ -9,6 +9,7 @@
     * [Node](#node---physical-server)
     * [Pod](#pod---smallest-unit-of-k8s-abstraction-over-a-container)
     * [Deployment](#deployment---blueprint-for-a-pod-abstraction-of-a-pod)
+    * [ReplicaSet](#replicaset---ensures-a-specified-number-of-identical-pods-are-running)
     * [StatefulSet](#statefulset---component-for-statefull-applications)
     * [Volumes](#volumes---attach-a-physical-storage-to-a-pod-so-that-data-lifecycle-is-not-tied-to-a-pod-itself)
     * [Service](#service---permanent-ip-address-thats-attached-to-a-pod)
@@ -65,9 +66,16 @@
 ### **Deployment** - blueprint for a Pod, abstraction of a Pod
 * used for stateLESS applications
 * you create Deployments rather than working with Pods directly
-* you can scale the number of replicas you need using a replicaset
+* you can scale the number of replicas you need using a ReplicaSet
 * deployments get a random hash appended to the name
 * databases can’t be replicated using Deployments
+
+### **ReplicaSet** - ensures a specified number of identical Pods are running
+* creates and manages multiple replicas of the same Pod
+* replaces a Pod automatically if it crashes or is deleted
+* uses labels and selectors to identify which Pods it manages
+* usually created and managed by a Deployment rather than created directly
+* does not provide deployment history, rolling updates, or rollbacks by itself
 
 ### **StatefulSet** - component for stateFULL Applications
 * should be used over Deployments for databases (MySql, MongoDB, ElasticSearch)
