@@ -110,7 +110,7 @@ This automatically starts the K8s Nginx implementation of Ingress Controller.
 * Pod is an abstraction of a container
 * Everything below a Deployment is managed by Kubernetes
 
-## Configuration files
+## Configuration files (aka 'Manifests')
 
 `kind` specifies the component kind ('Deployment', 'Service', etc). This determines what attributes are available in "spec".
 
