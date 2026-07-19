@@ -232,7 +232,9 @@ version: 2.0.0
 
 #### 3. Release management
 
-## minikube
+## Tools
+
+### minikube
 * Creates a Virtual Box on your local machine
 * A single Node runs both Control Plane and Worker processes
 * minikube CLI is used mostly for starting up or deleting the cluster
@@ -245,11 +247,11 @@ minikube status
 minikube addons enable ingress
 ```
 
-## kubectl
+### kubectl
 * CLI tool for Kubernetes clusters (minikube or Cloud)
 * way to interact with a cluster
 
-### CRUD commands
+#### CRUD commands
 
 ```bash
 # create deployment
@@ -262,13 +264,13 @@ kubectl edit deployment [name]
 kubectl delete deployment [name]
 ```
 
-### Status of different K8s components
+#### Status of different K8s components
 
 ```bash
 kubectl get nodes | pod | services | replicaset | deployment | all
 ```
 
-### Debugging pods
+#### Debugging pods
 
 ```bash
 # view logs
@@ -281,7 +283,7 @@ kubectl describe pod [pod name]
 kubectl exec -it [pod name] -- bin/bash
 ```
 
-### Working with configuration files
+#### Working with configuration files
 
 ```bash
 # Create/update using a configuration file
