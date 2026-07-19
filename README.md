@@ -46,7 +46,7 @@
             * Tells the container runtime to start/stop containers
             * Runs health checks
             * Reports Pod and node status back to control plane
-        * Kube Proxy - handles K8s Service networking on each worker node
+        * kube-proxy - handles K8s Service networking on each worker node
             * Forwards the requests from Services to Pods
             * Ensures performant communication with low overhead
 * **Control Plane nodes** (formerly 'Master Nodes') - control the cluster state and the worker nodes
