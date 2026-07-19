@@ -6,13 +6,30 @@
 ## Table of contents
 
 * [Main components](#main-components)
+    * [Node](#node---physical-server)
+    * [Pod](#pod---smallest-unit-of-k8s-abstraction-over-a-container)
+    * [Deployment](#deployment---blueprint-for-a-pod-abstraction-of-a-pod)
+    * [StatefulSet](#statefulset---component-for-statefull-applications)
+    * [Volumes](#volumes---attach-a-physical-storage-to-a-pod-so-that-data-lifecycle-is-not-tied-to-a-pod-itself)
+    * [Service](#service---permanent-ip-address-thats-attached-to-a-pod)
+    * [Ingress](#ingress---pretty-url-forwards-the-request-to-a-service)
+    * [ConfigMap](#configmap---external-configuration-of-your-application)
+    * [Secret](#secret---used-to-store-secret-data-passwords-certificates)
 * [Layers of Abstraction](#layers-of-abstraction)
 * [Configuration files](#configuration-files)
 * [Namespaces](#namespaces)
 * [Data persistence](#data-persistence)
+    * [Persistent Volumes](#persistent-volumes)
+    * [Storage Class](#storage-class)
+    * [Storage abstraction layers](#storage-abstraction-layers)
+    * [ConfigMap and Secret](#configmap-and-secret)
 * [Helm](#helm)
 * [Tools](#tools)
+    * [minikube](#minikube)
+    * [kubectl](#kubectl)
 * [Exercises](#exercises)
+    * [Kubernetes Dashboard](kubernetes-dashboard)
+    * [MongoDB & Mongo-Express](#mongodb--mongo-express)
 
 ## Main components
 
