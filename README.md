@@ -7,19 +7,19 @@
 
 ### **Node** - physical server
 * each Node has multiple Pods on it
-* There are 2 types of Nodes - Worker Nodes and Master Nodes
+* There are 2 types of Nodes - Worker Nodes and Control Plane Nodes
 * **Worker nodes**
     * 3 processes run on every worker node
         * container runtime - Docker
         * Kubelet - K8s process that interacts with both the container and the node. Starts and runs the pods with a container inside.
         * Kube Proxy - forwards the requests from Services to Pods. Ensures performant communication with low overhead
-* **Master nodes** - control the cluster state and the worker nodes
-    * 4 processes run on every master node
+* **Control Plane nodes** (formerly 'Master Nodes') - control the cluster state and the worker nodes
+    * 4 processes run on every Control Plane node
         * API Server - cluster gateway. receives the initial requests to update the cluster. Gatekeeper for authentication
         * Scheduler - decides on which Node to put a new Pod (doesn’t actually run it, Kubelet does that on the worker node itself)
         * Controller manager - detect state changes (like when nodes die) and reschedules/recovers via scheduler
         * etcd - cluster brain, key/value store for changes. 
-    * There are usually multiple Master nodes. The API service is load balanced and etcd stores a distributed storage across all of the master nodes.  
+    * There are usually multiple Control Plane nodes. The API service is load balanced and etcd stores a distributed storage across all of the Control Plane nodes.  
 
 ### **Pod** - smallest unit of K8, abstraction over a container.
 * Pods are ephemeral
@@ -179,7 +179,7 @@ This automatically starts the K8s Nginx implementation of Ingress Controller.
 
 ## minikube
 * Creates a Virtual Box on your local machine
-* A single Node runs both Master and Worker processes
+* A single Node runs both Control Plane and Worker processes
 * minikube CLI is used mostly for starting up or deleting the cluster
 * everything else will be done with `kubectl`
 
