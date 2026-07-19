@@ -26,14 +26,14 @@
     * 3 processes run on every worker node
         * container runtime - Docker
         * Kubelet - K8s process that interacts with both the container and the node
-	    * Starts and runs the pods with a container inside.
-	    * Watches the K8s API for Pods assigned to its node
-	    * Tells the container runtime to start/stop containers
-	    * Runs health checks
-	    * Reports Pod and node status back to control plane
+            * Starts and runs the pods with a container inside.
+            * Watches the K8s API for Pods assigned to its node
+            * Tells the container runtime to start/stop containers
+            * Runs health checks
+            * Reports Pod and node status back to control plane
         * Kube Proxy - handles K8s Service networking on each worker node
-	    * forwards the requests from Services to Pods
-	    * Ensures performant communication with low overhead
+            * Forwards the requests from Services to Pods
+            * Ensures performant communication with low overhead
 * **Control Plane nodes** (formerly 'Master Nodes') - control the cluster state and the worker nodes
     * 4 processes run on every Control Plane node
         * API Server - cluster gateway. receives the initial requests to update the cluster. Gatekeeper for authentication
