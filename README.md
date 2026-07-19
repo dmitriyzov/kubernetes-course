@@ -3,6 +3,20 @@
 ## Resources
 * [Kubernetes Full Course](https://youtu.be/X48VuDVv0do)
 
+## Table of contents
+
+* [Main components](#main-components)
+* [Layers of Abstraction](#layers-of-abstraction)
+* [Configuration files](#configuration-files)
+* [Namespaces](#namespaces)
+* [Data persistence](#data-persistence)
+* [ConfigMap and Secret](#configmap-and-secret)
+* [Ingress and Egress](#ingress-and-egress)
+* [minikube](#minikube)
+* [kubectl](#kubectl)
+* [Exercises](#exercises)
+* [Helm](#helm)
+
 ## Main components
 
 ### **Node** - physical server
