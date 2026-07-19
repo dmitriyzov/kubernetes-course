@@ -5,7 +5,7 @@
 
 ## Main components
 
-**Node** - physical server
+### **Node** - physical server
 * each Node has multiple Pods on it
 * There are 2 types of Nodes - Worker Nodes and Master Nodes
 * **Worker nodes**
@@ -21,20 +21,20 @@
         * etcd - cluster brain, key/value store for changes. 
     * There are usually multiple Master nodes. The API service is load balanced and etcd stores a distributed storage across all of the master nodes.  
 
-**Pod** - smallest unit of K8, abstraction over a container.
+### **Pod** - smallest unit of K8, abstraction over a container.
 * Pods are ephemeral
 * Creates a layer on top of a container so that the container is abstracted away.
 * Runs 1 application container per pod.
 * Each pod gets its own IP address.
 
-**Deployment** - blueprint for a Pod, abstraction of a Pod
+### **Deployment** - blueprint for a Pod, abstraction of a Pod
 * used for stateLESS applications
 * you create Deployments rather than working with Pods directly
 * you can scale the number of replicas you need using a replicaset
 * deployments get a random hash appended to the name
 * databases can’t be replicated using Deployments
 
-**StatefulSet** - component for stateFULL Applications
+### **StatefulSet** - component for stateFULL Applications
 * should be used over Deployments for databases (MySql, MongoDB, ElasticSearch)
 * takes care of replicating and scaling stateful Pods
 * StatefulSets have fixed ordered names
@@ -45,28 +45,31 @@ but name nad endpoint stay the same.
     * replica Pods can't be randomly addressed
     * unlike Deployment Pod s, replica Pods are not identical - they have Pod Identity
 
-**Volumes** - attach a physical storage to a pod so that data lifecycle is not tied to a pod itself
+### **Volumes** - attach a physical storage to a pod so that data lifecycle is not tied to a pod itself
 * K8 doesn’t manage data persistence (unless you use Persistent Volumes)
 * data can be on local machine
 * can be remote, outside the K8 cluster
 * when a Pod is restarted, data persists
 
-**Service** - permanent IP address that’s attached to a Pod.
+### **Service** - permanent IP address that’s attached to a Pod.
 * Serves as a permanent IP for a Pod and as a Load Balancer between pods.
 * Pods communicate with each other using a service.
 * Lifecycles of pods and services are not connected (if pod dies, service stays)
 * External service - service that opens communication from external service.
 * Internal service - for db, etc
 * `protocol://ip-address:port`
+* Service types
+    * ClusterIP - default type 
+    * Headless
 
-**Ingress** - pretty url, forwards the request to a service
+### **Ingress** - pretty url, forwards the request to a service
 
-**ConfigMap** - external configuration of your application
+### **ConfigMap** - external configuration of your application
 * contains URLs of dbs, etc
 * connected to a Pod so the Pod gets the data from it
 * don’t use it for credentials in plain text
 
-**Secret** - used to store secret data (passwords, certificates)
+### **Secret** - used to store secret data (passwords, certificates)
 * stored in base64, not plaintext
 * should be preferred over ConfigMap for sensitive data
 * the built-in security mechanism is not enabled by default
