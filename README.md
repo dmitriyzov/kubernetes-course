@@ -95,15 +95,20 @@ but name nad endpoint stay the same.
 * when a Pod is restarted, data persists
 
 ### **Service** - permanent IP address that’s attached to a Pod.
-* Serves as a permanent IP for a Pod and as a Load Balancer between pods.
-* Pods communicate with each other using a service.
-* Lifecycles of pods and services are not connected (if pod dies, service stays)
+* Provides a stable virtual IP address and a DNS name
+* Uses labels/selectors to find the Pods it should send traffic to.
+* Load-balances traffic between matching healthy Pods.
+* Pods can communicate directly using Pod IPs, but Services provide stable discovery since Pod IPs are temporary.
+* Service remains even when Pods die
 * External service - service that opens communication from external service.
 * Internal service - for db, etc
 * `protocol://ip-address:port`
 * Service types
-    * ClusterIP - default type 
-    * Headless
+    * ClusterIP - default type, accessible only from inside the cluster
+    * NodePort - exposes the Service through a port on every worker node
+    * LoadBalancer - creates or connects to an external load balancer
+    * ExternalName - maps the service to an external DNS name
+* Headless Service - a Service with `clusterIP: None`; it has no virtual IP or built-in load balancing and DNS returns the individual Pod IPs.
 
 ### **Ingress** - pretty url, forwards the request to a service
 * entrypoint to the cluster  
