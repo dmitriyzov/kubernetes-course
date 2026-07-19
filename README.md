@@ -27,7 +27,7 @@
         * container runtime - Docker
         * Kubelet - K8s process that interacts with both the container and the node
 	    * Starts and runs the pods with a container inside.
-	    * Watches the K8S API for Pods assigned to its node
+	    * Watches the K8s API for Pods assigned to its node
 	    * Tells the container runtime to start/stop containers
 	    * Runs health checks
 	    * Reports Pod and node status back to control plane
@@ -42,7 +42,7 @@
         * etcd - cluster brain, key/value store for changes. 
     * There are usually multiple Control Plane nodes. The API service is load balanced and etcd stores a distributed storage across all of the Control Plane nodes.  
 
-### **Pod** - smallest unit of K8, abstraction over a container.
+### **Pod** - smallest unit of K8s, abstraction over a container.
 * Pods are ephemeral
 * Creates a layer on top of a container so that the container is abstracted away.
 * Runs 1 application container per pod.
@@ -61,15 +61,15 @@
 * StatefulSets have fixed ordered names
 * In addition, StatefulSet pods have fixed individual DNS names. When Pod restarts, IP address changes,
 but name nad endpoint stay the same.
-* deploying DBs using Stateful Sets is difficult, so DBs are often hosted outside of K8 clusters
+* deploying DBs using Stateful Sets is difficult, so DBs are often hosted outside of K8s clusters
     * replica Pods can't be created/deleted at the same time
     * replica Pods can't be randomly addressed
     * unlike Deployment Pod s, replica Pods are not identical - they have Pod Identity
 
 ### **Volumes** - attach a physical storage to a pod so that data lifecycle is not tied to a pod itself
-* K8 doesn’t manage data persistence (unless you use Persistent Volumes)
+* K8s doesn’t manage data persistence (unless you use Persistent Volumes)
 * data can be on local machine
-* can be remote, outside the K8 cluster
+* can be remote, outside the K8s cluster
 * when a Pod is restarted, data persists
 
 ### **Service** - permanent IP address that’s attached to a Pod.
