@@ -11,7 +11,6 @@
 * [Namespaces](#namespaces)
 * [Data persistence](#data-persistence)
 * [ConfigMap and Secret](#configmap-and-secret)
-* [Ingress and Egress](#ingress-and-egress)
 * [minikube](#minikube)
 * [kubectl](#kubectl)
 * [Exercises](#exercises)
@@ -84,6 +83,16 @@ but name nad endpoint stay the same.
     * Headless
 
 ### **Ingress** - pretty url, forwards the request to a service
+* entrypoint to the cluster  
+* evaluates all the rules  
+* manages redirection
+
+Instead of accessing the application using an external service (IP:PORT), you can use an Ingress, which will redirect the request to an internal service.
+This way, you don't have to expose the IP and the port. Additionally, you don't have to specify the `nodePort` on the internal service, and you don't have to set `type:LoadBalancer` - the default (implied) `type:ClusterIP` is used instead.
+However, creating the Ingress in yaml alone won't work - you also need an implementation for Ingress, aka Ingress Controller.
+An Ingress Controller is installed on another Pod or set of Pods, that run on a node in your K8s cluster, and handles evaluation and processing of Ingress rules that are defined in the cluster. The Ingress Controller Pod becomes the entrypoint into the Cluster. There are different implementations of the Ingress Controller, including the K8s Nginx Ingress Controller.
+To install Ingress in a Minikube cluster, you can run `minikube addons enable ingress`.
+This automatically starts the K8s Nginx implementation of Ingress Controller.
 
 ### **ConfigMap** - external configuration of your application
 * contains URLs of dbs, etc
@@ -178,25 +187,6 @@ There are internal (`kubernetes.io`) and external (Cloud) provisioners
 * These are also volume types
 * Not created via PV and PVC and is managed by Kubernetes itself
 * You can mount either into your Pod or Container 
-
-## Ingress and Egress
-
-### Ingress
-
-Instead of accessing the application using an external service (IP:PORT), you can use an Ingress, which will redirect the request to an internal service.
-This way, you don't have to expose the IP and the port. Additionally, you don't have to specify the `nodePort` on the internal service, and you don't have to set `type:LoadBalancer` - the default (implied) `type:ClusterIP` is used instead.
-
-However, creating the Ingress in yaml alone won't work - you also need an implementation for Ingress, aka Ingress Controller.
-
-An Ingress Controller is installed on another Pod or set of Pods, that run on a node in your K8s cluster, and handles evaluation and processing of Ingress rules that are defined in the cluster. The Ingress Controller Pod becomes the entrypoint into the Cluster. There are different implementations of the Ingress Controller, including the K8s Nginx Ingress Controller.
-
-- entrypoint to the cluster  
-- evaluates all the rules  
-- manages redirection
-
-To install Ingress in a Minikube cluster, you can run `minikube addons enable ingress`.
-
-This automatically starts the K8s Nginx implementation of Ingress Controller.
 
 ## minikube
 * Creates a Virtual Box on your local machine
