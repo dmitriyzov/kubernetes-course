@@ -10,7 +10,6 @@
 * [Configuration files](#configuration-files)
 * [Namespaces](#namespaces)
 * [Data persistence](#data-persistence)
-* [ConfigMap and Secret](#configmap-and-secret)
 * [minikube](#minikube)
 * [kubectl](#kubectl)
 * [Exercises](#exercises)
@@ -182,7 +181,7 @@ There are internal (`kubernetes.io`) and external (Cloud) provisioners
 2. Persistent Volume Claim requests storage from the Storage Class  
 3. Storage Class creates a Persistent Volume that meets the needs of the Claim
 
-## ConfigMap and Secret
+### ConfigMap and Secret
 
 * These are also volume types
 * Not created via PV and PVC and is managed by Kubernetes itself
