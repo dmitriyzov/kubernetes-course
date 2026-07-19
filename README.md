@@ -10,10 +10,9 @@
 * [Configuration files](#configuration-files)
 * [Namespaces](#namespaces)
 * [Data persistence](#data-persistence)
-* [minikube](#minikube)
-* [kubectl](#kubectl)
-* [Exercises](#exercises)
 * [Helm](#helm)
+* [Tools](#tools)
+* [Exercises](#exercises)
 
 ## Main components
 
