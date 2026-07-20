@@ -26,8 +26,8 @@
     * [ConfigMap and Secret](#configmap-and-secret)
 * [Helm](#helm)
 * [Tools](#tools)
-    * [minikube](#minikube)
     * [kubectl](#kubectl)
+    * [minikube](#minikube)
 * [Exercises](#exercises)
     * [Kubernetes Dashboard](kubernetes-dashboard)
     * [MongoDB & Mongo-Express](#mongodb--mongo-express)
@@ -263,19 +263,6 @@ version: 2.0.0
 
 ## Tools
 
-### minikube
-* Creates a Virtual Box on your local machine
-* A single Node runs both Control Plane and Worker processes
-* minikube CLI is used mostly for starting up or deleting the cluster
-* everything else will be done with `kubectl`
-
-```bash
-minikube config set driver hyperkit # or docker if using an Apple Silicon chip
-minikube start
-minikube status
-minikube addons enable ingress
-```
-
 ### kubectl
 * CLI tool for Kubernetes clusters (minikube or Cloud)
 * way to interact with a cluster
@@ -320,6 +307,19 @@ kubectl apply -f nginx-deployment.yaml
 
 # Delete using a configuration file
 kubectl delete -f nginx-deployment.yaml
+```
+
+### minikube
+* Creates a Virtual Box on your local machine
+* A single Node runs both Control Plane and Worker processes
+* minikube CLI is used mostly for starting up or deleting the cluster
+* everything else will be done with `kubectl`
+
+```bash
+minikube config set driver hyperkit # or docker if using an Apple Silicon chip
+minikube start
+minikube status
+minikube addons enable ingress
 ```
 
 ## Exercises
