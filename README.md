@@ -5,6 +5,7 @@
 
 ## Table of contents
 
+* [Layers of Abstraction](#layers-of-abstraction)
 * [Main components](#main-components)
     * [Node](#node---physical-server)
     * [Pod](#pod---smallest-unit-of-k8s-abstraction-over-a-container)
@@ -16,7 +17,6 @@
     * [Ingress](#ingress---pretty-url-forwards-the-request-to-a-service)
     * [ConfigMap](#configmap---external-configuration-of-your-application)
     * [Secret](#secret---used-to-store-secret-data-passwords-certificates)
-* [Layers of Abstraction](#layers-of-abstraction)
 * [Configuration files](#configuration-files)
 * [Namespaces](#namespaces)
 * [Data persistence](#data-persistence)
@@ -31,6 +31,13 @@
 * [Exercises](#exercises)
     * [Kubernetes Dashboard](kubernetes-dashboard)
     * [MongoDB & Mongo-Express](#mongodb--mongo-express)
+
+## Layers of Abstraction
+
+* [Deployment](#deployment---blueprint-for-a-pod-abstraction-of-a-pod) manages a [ReplicaSet](#replicaset---ensures-a-specified-number-of-identical-pods-are-running)
+* [ReplicaSet](#replicaset---ensures-a-specified-number-of-identical-pods-are-running) manages a [Pod](#pod---smallest-unit-of-k8s-abstraction-over-a-container)
+* [Pod](#pod---smallest-unit-of-k8s-abstraction-over-a-container) is an abstraction of a container
+* Everything below a Deployment is managed by Kubernetes
 
 ## Main components
 
@@ -132,13 +139,6 @@ This automatically starts the K8s Nginx implementation of Ingress Controller.
 * should be preferred over ConfigMap for sensitive data
 * the built-in security mechanism is not enabled by default
 * not fully secure unless you use add'l measures like encryption at rest or tools like HashiCorp Vault
-
-## Layers of Abstraction
-
-* Deployment manages a ReplicaSet
-* ReplicaSet manages a Pod
-* Pod is an abstraction of a container
-* Everything below a Deployment is managed by Kubernetes
 
 ## Configuration files (aka 'Manifests')
 
