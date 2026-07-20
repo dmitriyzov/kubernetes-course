@@ -374,5 +374,3 @@ mongo-express-external-service   LoadBalancer   10.106.57.109    127.0.0.1     8
 Mongo-express will be available at:
 * http://mongo-express.com:8081 (using an external service)
 * http://mongo-express.com (using ingress)
-
-See https://github.com/kubernetes/minikube/issues/13510
