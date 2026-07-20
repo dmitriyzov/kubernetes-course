@@ -101,7 +101,7 @@ but name nad endpoint stay the same.
 * can be remote, outside the K8s cluster
 * when a Pod is restarted, data persists
 
-### **Service** - permanent IP address that’s attached to a Pod.
+### **Service** - stable network endpoint for accessing a group of Pods
 * Provides a stable virtual IP address and a DNS name
 * Uses labels/selectors to find the Pods it should send traffic to.
 * Load-balances traffic between matching healthy Pods.
